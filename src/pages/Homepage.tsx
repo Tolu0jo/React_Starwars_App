@@ -9,6 +9,12 @@ const Homepage = () => {
       <div className="content">
         <Sidebar />
 </div>
+<div className="main-content">
+          {/* Your paginated list of characters goes here */}
+          <p>Character 1</p>
+          <p>Character 2</p>
+          {/* ... */}
+        </div>
 </div>
   )
 }
