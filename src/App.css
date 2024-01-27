@@ -4,23 +4,10 @@
   box-sizing: border-box;  
 }
 
-
-.home-page {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.home-page{
+  height: 100vh;
 }
-
-
-.content {
+.main-section{
   display: flex;
-  justify-content: center;
-  width: 80%;
-  margin-top: 20px;
-}
-
-
-.main-content {
-  width: 80%;
-  padding: 20px;
+  height:90%;
 }

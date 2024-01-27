@@ -1,22 +1,17 @@
-import React from 'react'
-import Header from '../components/header/Header'
-import Sidebar from '../components/sidebar/Sidebar'
+import Header from "../components/header/Header";
+import Sidebar from "../components/sidebar/Sidebar";
+import CharacterList from "../components/characterListing/CharacterList";
 
 const Homepage = () => {
   return (
-<div className="home-page">
+    <div className="home-page">
       <Header />
-      <div className="content">
+      <div className="main-section">
         <Sidebar />
-</div>
-<div className="main-content">
-          {/* Your paginated list of characters goes here */}
-          <p>Character 1</p>
-          <p>Character 2</p>
-          {/* ... */}
-        </div>
-</div>
-  )
-}
+        <CharacterList />
+      </div>
+    </div>
+  );
+};
 
-export default Homepage
+export default Homepage;

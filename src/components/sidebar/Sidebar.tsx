@@ -1,14 +1,18 @@
 import React from 'react';
-
+import "./sidebar.css"
 const Sidebar=()=> {
   return (
     <div className="sidebar">
-      <h2>Favorites</h2>
+       
+      <h1>Favorites</h1>
+      <hr/>
       {/* Your favorites list goes here */}
-      <p>Favorite 1</p>
-      <p>Favorite 2</p>
-      {/* ... */}
+      <ul className='favorite'>
+      <li>Favorite 1</li>
+      <li>Favorite 2</li>
+    </ul>
     </div>
+    
   );
 }
 
