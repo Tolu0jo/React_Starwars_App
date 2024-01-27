@@ -1,4 +1,3 @@
-// https://swapi.dev/api/people/?search=r2
 import axios from "axios";
 import starWarsApi from "./api"
 import { createAsyncThunk } from "@reduxjs/toolkit";
@@ -6,7 +5,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 export const fetchCharactersAsync = createAsyncThunk(
     "characters/fetchCharactersAsync",
     async()=>{
-        const response = await starWarsApi.get("/people");
+        const response = await starWarsApi.get("/");
 
         return response.data
     }
@@ -15,7 +14,7 @@ export const fetchCharactersAsync = createAsyncThunk(
 export const fetchSearchedCharacterAsync = createAsyncThunk(
     "characters/fetchSearchedCharacterAsync",
     async(search:string)=>{
-        const response = await starWarsApi.get(`/people/?search=${search}`);
+        const response = await starWarsApi.get(`/?search=${search}`);
 
         return response.data
     }
@@ -23,8 +22,10 @@ export const fetchSearchedCharacterAsync = createAsyncThunk(
 
 export const fetchSingleCharacter= createAsyncThunk(
     "characters/fetchSingleCharacter",
-    async(url:string)=>{
-        const response = await axios.get(url)
+    async(id:string)=>{
+        const response = await starWarsApi.get(`/${id}`)
+      
         return response.data
+      
     }
 )

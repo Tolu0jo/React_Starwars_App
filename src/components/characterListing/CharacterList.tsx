@@ -1,6 +1,13 @@
+import { useSelector } from "react-redux"
 import "./characterList.css"
+import { getAllCharacters } from "../../features/character/characterSlice"
 
 const CharacterList = () => {
+
+
+ const characters = useSelector(getAllCharacters)
+
+ console.log(characters)
   return (
     
     <div className="main-content">
@@ -65,7 +72,8 @@ const CharacterList = () => {
 </table>
 
      </div>
-
+     <button>previous</button>
+<button>next</button>
   </div>
   )
 }

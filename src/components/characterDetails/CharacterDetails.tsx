@@ -1,7 +1,18 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import "./characterDetails.css"
+import { useParams } from 'react-router-dom'
+import { getSelectedCharacter } from '../../features/character/characterSlice'
+import { useDispatch, useSelector } from 'react-redux'
+import { fetchSingleCharacter } from '../../api/apiCall'
+import { AppDispatch} from '../../features/store'
 const CharacterDetails = () => {
-
+    const{id} = useParams()
+    const data = useSelector(getSelectedCharacter)
+    const dispatch = useDispatch<AppDispatch>()
+    useEffect(()=>{
+     dispatch(fetchSingleCharacter(id!))
+    },[dispatch])
+console.log(data )
   return (
 <div className="main-content">
     <h1>Star wars Characters</h1>
@@ -26,20 +37,6 @@ const CharacterDetails = () => {
     </ul>
   </div>
   <div className="list-item"><span className="label">Species:</span> <a href="https://swapi.dev/api/species/1/">Species 1</a></div>
-  {/* <div className="list-item">
-    <span className="label">Vehicles:</span>
-    <ul>
-      <li><a href="https://swapi.dev/api/vehicles/14/">Vehicle 14</a></li>
-      <li><a href="https://swapi.dev/api/vehicles/30/">Vehicle 30</a></li>
-    </ul>
-  </div>
-  <div className="list-item">
-    <span className="label">Starships:</span>
-    <ul>
-      <li><a href="https://swapi.dev/api/starships/12/">Starship 12</a></li>
-      <li><a href="https://swapi.dev/api/starships/22/">Starship 22</a></li>
-    </ul>
-  </div> */}
 
 </div>
 
