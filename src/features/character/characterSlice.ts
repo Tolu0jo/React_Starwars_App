@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit"
+import { fetchCharactersAsync } from "../../api/apiCall"
 
 const initialState ={
     characters:{},
@@ -16,8 +17,17 @@ const characterSlice =createSlice({
 
     },
     extraReducers:(builder)=>{
-      
+      builder.addCase(
+        fetchCharactersAsync.fulfilled,(state,{payload})=>{
+          console.log("fulfilled")
+          return{...state,data:payload}
+        }
+      )
 
     }
 
 })
+
+export const getAllCharacters =(state:any)=>state.characters.data
+
+export default characterSlice.reducer;
