@@ -1,4 +1,3 @@
-import React from 'react';
 import "./sidebar.css"
 const Sidebar=()=> {
   return (
@@ -6,7 +5,6 @@ const Sidebar=()=> {
        
       <h1>Favorites</h1>
       <hr/>
-      {/* Your favorites list goes here */}
       <ul className='favorite'>
       <li>Favorite 1</li>
       <li>Favorite 2</li>
