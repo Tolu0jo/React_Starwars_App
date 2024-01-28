@@ -1,30 +1,53 @@
-# React + TypeScript + Vite
+# STAR WARS REACT APP
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This React app is a simple web application for searching people and managing your favorite profiles. It offers a user-friendly interface and seamless navigation. The app can be easily launched using `npm run dev` and runs on `localhost:5173`.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Landing Page
 
-## Expanding the ESLint configuration
+The landing page is the starting point of the app, displays a paginated list of characters from the Star Wars universe and also characters searched character.
+Each character is a clickable link that leads to the Character Details page, featuring an header containing the search bar 
+and sidebar that displays the user's favorite characters.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
 
-- Configure the top-level `parserOptions` property like this:
+### Character details Page
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+This page provides detailed information about a specific character, including the movies they appeared in.
+Users can add/remove the character from their favorites with an icon.
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+
+### Technologies Used
+- React: Front-end library for building user interfaces.
+- Redux: State management for the application.
+- React Router: Handling navigation between pages.
+- CSS: Styling the components.
+- SWAPI: Star Wars API for fetching character data.
+
+## Usage
+
+To run the app locally, follow these steps:
+
+1. Clone the repository.
+2. Open your terminal and navigate to the project folder.
+3. Run the following command to install the necessary dependencies:
+
+   ```bash
+   npm install
+   ```
+
+4. Start the app with the following command:
+
+   ```bash
+   npm run dev
+   ```
+
+5. Open your web browser and go to `http://localhost:5173` to access the app.
+
+Enjoy using the app for searching and managing your favorite star wars character!
+
+## License
+
+This project is licensed under the MIT License 
+
+Copyright (c) 2024 Tolulope Ojo.
