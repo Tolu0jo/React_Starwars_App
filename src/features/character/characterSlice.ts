@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit"
-import { fetchCharactersAsync, fetchSearchedCharacterAsync, fetchSingleCharacter } from "../../api/apiCall"
+import { fetchCharactersAsync, fetchCharactersByPage, fetchSearchedCharacterAsync, fetchSingleCharacter } from "../../api/apiCall"
 
 const initialState ={
     characters:{},
@@ -9,11 +9,13 @@ const initialState ={
 }
 
 
-const characterSlice =createSlice({
+const characterSlice:any=createSlice({
     name:"characters",
     initialState,
     reducers:{
-
+        removeSelectedCharacter:(state)=>{
+            state.selectedCharacter={}
+        }
     },
     extraReducers:(builder)=>{
       builder.addCase(
@@ -31,12 +33,16 @@ const characterSlice =createSlice({
             console.log("fulfilled")
             return{...state,selectedCharacter:payload}
           }
+      ).addCase(
+        fetchCharactersByPage.fulfilled,(state,{payload})=>{
+            return{...state,characters:payload} 
+        }
       )
 
     }
 
 })
-
+export const {removeSelectedCharacter} = characterSlice.actions
 export const getAllCharacters =(state:any)=>state.characters.characters
 export const getSelectedCharacter =(state:any)=>state.characters.selectedCharacter
 export default characterSlice.reducer;

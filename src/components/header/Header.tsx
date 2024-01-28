@@ -1,16 +1,19 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./header.css"
 import { useDispatch } from "react-redux";
 import { fetchSearchedCharacterAsync } from "../../api/apiCall";
 import { AppDispatch } from "../../features/store";
 
 const Header = () => {
+    const navigate =useNavigate()
     const[search,setSearch]=useState("")
     const dispatch = useDispatch<AppDispatch>()
+    
     const handleSubmit =(e: { preventDefault: () => void })=>{
     e.preventDefault();
     if(!search) return alert("Please enter a search")
+    navigate("/")
     dispatch(fetchSearchedCharacterAsync(search))
     setSearch("")
     }

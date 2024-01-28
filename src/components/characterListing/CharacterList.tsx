@@ -1,81 +1,67 @@
-import { useSelector } from "react-redux"
-import "./characterList.css"
-import { getAllCharacters } from "../../features/character/characterSlice"
+import { useDispatch, useSelector } from "react-redux";
+import "./characterList.css";
+import { getAllCharacters } from "../../features/character/characterSlice";
+import { useNavigate } from "react-router-dom";
+
+import { fetchCharactersByPage } from "../../api/apiCall";
 
 const CharacterList = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const characters = useSelector(getAllCharacters);
+  const handleNavigation = (url: string) => {
+    const match = url.match(/\/(\d+)\/$/);
+    const id = match ? match[1] : null;
+    navigate(`/character/${id}`);
+  };
 
+  const handlePreviousPage = (url: string) => {
+    dispatch(fetchCharactersByPage(url));
+  };
 
- const characters = useSelector(getAllCharacters)
-
- console.log(characters)
+  const handleNextPage = (url: string) => {
+    dispatch(fetchCharactersByPage(url));
+  };
   return (
-    
     <div className="main-content">
-    <h1>Star wars Characters</h1>
-     <div className="list-container">
-    <table className="table">
-    <tr>
-    <th>Name</th>
-    <th>gender</th>
+      <h1>Star wars Characters</h1>
+      <div className="list-container">
+        {Object.keys(characters).length === 0 ? (
+          <div className="loader"></div>
+        ) : (
+          <>
+            <table className="table">
+              <tr>
+                <th>Name</th>
+                <th>gender</th>
+              </tr>
+              {characters.results.map(
+                (character: { name: string; gender: string; url: string }) => (
+                  <tr
+                    key={character.name}
+                    onClick={() => handleNavigation(character.url)}
+                  >
+                    <td>{character.name}</td>
+                    <td>{character.gender}</td>
+                  </tr>
+                )
+              )}
+            </table>
+          </>
+        )}
+      </div>
+      <div className="pagination">
+        {characters.previous && (
+          <button onClick={() => handlePreviousPage(characters.previous)}>
+            Prev
+          </button>
+        )}
+        {characters.next && (
+          <button onClick={() => handleNextPage(characters.next)}>Next</button>
+        )}
+      </div>
+    </div>
+  );
+};
 
-  </tr>
-  <tr>
-    <td>Alfreds Futterkiste</td>
-    <td>Maria Anders</td>
-   
-  </tr>
-  <tr>
-    <td>Berglunds snabbköp</td>
-    <td>Christina Berglund</td>
-
-  </tr>
-  <tr>
-    <td>Centro comercial Moctezuma</td>
-    <td>Francisco Chang</td>
-
-  </tr>
-  <tr>
-    <td>Ernst Handel</td>
-    <td>Roland Mendel</td>
-
-  </tr>
-  <tr>
-    <td>Island Trading</td>
-    <td>Helen Bennett</td>
-
-  </tr>
-  <tr>
-    <td>Königlich Essen</td>
-    <td>Philip Cramer</td>
-
-  </tr>
-  <tr>
-    <td>Laughing Bacchus Winecellars</td>
-    <td>Yoshi Tannamuri</td>
-
-  </tr>
-  <tr>
-    <td>Magazzini Alimentari Riuniti</td>
-    <td>Giovanni Rovelli</td>
-
-  </tr>
-  <tr>
-    <td>North/South</td>
-    <td>Simon Crowther</td>
-
-  </tr>
-  <tr>
-    <td>Paris spécialités</td>
-    <td>Marie Bertrand</td>
-
-  </tr>
-</table>
-
-     </div>
-     <button>previous</button>
-<button>next</button>
-  </div>
-  )
-}
-
-export default CharacterList
+export default CharacterList;

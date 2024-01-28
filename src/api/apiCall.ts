@@ -1,6 +1,6 @@
 import axios from "axios";
 import starWarsApi from "./api"
-import { createAsyncThunk } from "@reduxjs/toolkit";
+import { AsyncThunkAction, createAsyncThunk } from "@reduxjs/toolkit";
 
 export const fetchCharactersAsync = createAsyncThunk(
     "characters/fetchCharactersAsync",
@@ -29,3 +29,12 @@ export const fetchSingleCharacter= createAsyncThunk(
       
     }
 )
+
+export const fetchCharactersByPage =createAsyncThunk(
+    "characters/fetchCharactersByPage",
+    async(url:string)=>{ 
+        const response = await axios.get(url)
+
+        return response.data
+    }
+)as unknown as any;
