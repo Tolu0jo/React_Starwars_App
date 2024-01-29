@@ -9,14 +9,6 @@ const Sidebar=()=> {
 
    
 
-  // const [favorites, setFavorites] = useState<Favorite[]>([]);
-
-  
-  // useEffect(() => {
-  //   const storedFavorites = JSON.parse(localStorage.getItem('favorites') as string);
-  //   setFavorites(storedFavorites);
-  // }, [favorites]);
-
   const favorites = useSelector(getFavorite);
 
   useEffect(() => {
@@ -29,7 +21,7 @@ const Sidebar=()=> {
       <h1>Favorites</h1>
       <hr/>
       <ul className='favorite'>
-     {favorites && favorites.map((favorite:Favorite)=><li><Link to={`/character/${favorite.id}`}> {favorite.name}</Link></li>)}
+     {favorites && favorites.map((favorite:Favorite)=><Link className= "link" to={`/character/${favorite.id}`}> <li>{favorite.name}</li></Link>)}
       
     </ul>
     </div>

@@ -38,3 +38,4 @@ export const fetchCharactersByPage =createAsyncThunk(
         return response.data
     }
 )as unknown as any;
+

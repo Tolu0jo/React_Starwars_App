@@ -5,7 +5,7 @@ const initialState ={
     characters:{},
     selectedCharacter:{},
     favorites:[],
-    pending:false,
+    
 }
 
 
@@ -42,6 +42,7 @@ const characterSlice:any=createSlice({
     }
 
 })
+
 export const {removeSelectedCharacter} = characterSlice.actions
 export const getAllCharacters =(state:any)=>state.characters.characters
 export const getSelectedCharacter =(state:any)=>state.characters.selectedCharacter

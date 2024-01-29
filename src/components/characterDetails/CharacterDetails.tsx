@@ -57,7 +57,7 @@ const CharacterDetails = () => {
         <>
           <div className="main-content1">
             <h1>
-              {data.name}{" "}
+              {data.name}
               {isFavorite ? (
                 <MdOutlineFavoriteBorder
                   className="unfavor-icon"

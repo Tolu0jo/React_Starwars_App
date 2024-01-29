@@ -20,7 +20,7 @@ const Header = () => {
     return (
   <div className="header">
 
-    <div className="logo">  <Link to="/">Star Wars </Link></div>
+    <div className="logo">  <Link className="link" to="/">Star Wars </Link></div>
     <div className="search-bar">
     <form onSubmit={handleSubmit}>
       <input type="text" value={search} placeholder="Search..." onChange={(e)=>setSearch(e.target.value)}/>

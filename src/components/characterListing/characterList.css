@@ -1,5 +1,6 @@
 .main-content{
     flex-grow: 1;
+    
 }
 .main-content h1{
  margin-top: 1rem;
@@ -17,6 +18,12 @@
     cursor: pointer;
 }
 
+.not_found{
+  text-align:center;
+  font-size: 1.5rem;
+ 
+}
+
 .table {
     font-family: Arial, Helvetica, sans-serif;
     border-collapse: collapse;
@@ -25,7 +32,6 @@
   }
   
   .table td, .table th {
-    /* border: 1px solid #c70f22; */
     padding: 8px;
   }
   
@@ -37,7 +43,7 @@
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: left;
-    background-color: lightblue;
+    background-color: rgb(11, 41, 51);;
     color: white;
   }
 
@@ -48,7 +54,7 @@
   }
   
   .pagination button {
-    background-color: lightblue;
+    background-color: rgb(11, 41, 51);;
     color: white;
     border-radius: 3px;
     cursor: pointer;
@@ -58,7 +64,7 @@
   }
   
   .pagination button:hover {
-    background-color: rgb(210, 234, 241);
+    background-color: rgb(17, 96, 123);
   }
   
   .pagination button:disabled {

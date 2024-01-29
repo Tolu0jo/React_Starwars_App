@@ -9,6 +9,7 @@ const CharacterList = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const characters = useSelector(getAllCharacters);
+
   const handleNavigation = (url: string) => {
     const match = url.match(/\/(\d+)\/$/);
     const id = match ? match[1] : null;
@@ -28,6 +29,8 @@ const CharacterList = () => {
       <div className="list-container">
         {Object.keys(characters).length === 0 ? (
           <div className="loader"></div>
+        ) : characters.count == 0 ? (
+          <div className="not_found">Opps! No Character found.</div>
         ) : (
           <>
             <table className="table">
@@ -51,14 +54,18 @@ const CharacterList = () => {
         )}
       </div>
       <div className="pagination">
-        {characters.previous && (
-          <button onClick={() => handlePreviousPage(characters.previous)}>
-            Prev
-          </button>
-        )}
-        {characters.next && (
-          <button onClick={() => handleNextPage(characters.next)}>Next</button>
-        )}
+        <button
+          onClick={() => handlePreviousPage(characters.previous)}
+          disabled={!characters.previous}
+        >
+          Prev
+        </button>
+        <button
+          onClick={() => handleNextPage(characters.next)}
+          disabled={!characters.next}
+        >
+          Next
+        </button>
       </div>
     </div>
   );
