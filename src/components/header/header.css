@@ -9,10 +9,10 @@
  }
  /* rgb(23, 79, 97); */
  .logo{
-    font-size: 40px;
-    font-weight: 600;
+    font-size: 35px;
+    /* font-weight: 60; */
      color: white;
-
+     font-family: 'Star Wars', sans-sherif;
  }
 
 .link{

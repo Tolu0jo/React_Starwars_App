@@ -13,7 +13,7 @@ const Header = () => {
     const handleSubmit =(e: { preventDefault: () => void })=>{
     e.preventDefault();
     if(!search) return alert("Please enter a search")
-    navigate("/")
+    navigate(`/`)
     dispatch(fetchSearchedCharacterAsync(search))
     setSearch("")
     }

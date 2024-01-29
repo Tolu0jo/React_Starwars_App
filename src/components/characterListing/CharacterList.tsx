@@ -8,6 +8,7 @@ import { fetchCharactersByPage } from "../../api/apiCall";
 const CharacterList = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
   const characters = useSelector(getAllCharacters);
 
   const handleNavigation = (url: string) => {

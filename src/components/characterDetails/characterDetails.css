@@ -2,8 +2,9 @@
     margin: auto;
     width:50%
 }
-.main-content h1{
- margin-left:30px
+.main-content1 h1{
+ margin-left:30px;
+ font-family: 'Star Wars', sans-sherif;
 }
 
 .character-details {
